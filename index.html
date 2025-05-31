@@ -384,6 +384,12 @@
             margin: clamp(2rem, 3vw, 4rem) 0;
             position: relative;
         }
+        
+        .timeline-item .timeline-content {
+                margin-left: 0;
+        }
+
+           
 
         .timeline-content {
             background: var(--surface);
@@ -391,12 +397,19 @@
             border-radius: 20px;
             border: 1px solid var(--border);
             backdrop-filter: blur(20px);
-            max-width: 35%;
-            width: 70%;
+/*             max-width: 35%; */
+/*             width: 70%; */
             word-wrap: break-word;
             position: relative;
             transition: all 0.5s ease;
             background-color: red;
+/*              */
+             max-width: 600px;
+            width: calc(100% - 100px);
+            margin-left: 60px !important;
+            transform: none !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .timeline-item:nth-child(odd) .timeline-content {
@@ -415,8 +428,8 @@
 
         .timeline-marker {
             position: absolute;
-            left: 50%;
-            top: 50%;
+/*             left: 50%; */
+/*             top: 50%; */
             transform: translate(-50%, -50%);
             width: clamp(15px, 2vw, 20px);
             height: clamp(15px, 2vw, 20px);
@@ -425,6 +438,12 @@
             border: 3px solid var(--dark);
             z-index: 2;
         }
+        
+         .timeline-marker {
+                left: 20px;
+                top: 10px;
+            }
+        
 
         .company a {
             color: var(--primary);
