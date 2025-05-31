@@ -373,7 +373,7 @@
         .timeline::before {
             content: '';
             position: absolute;
-            left: 15%;
+            left: 10%;
             transform: translateX(-50%);
             width: 1px;
             height: 100%;
@@ -397,20 +397,17 @@
             border-radius: 20px;
             border: 1px solid var(--border);
             backdrop-filter: blur(20px);
-/*             max-width: 35%; */
-/*             width: 70%; */
+            width: 60%;
             word-wrap: break-word;
             position: relative;
             transition: all 0.5s ease;
-            background-color: orange;
+            background-color: pinkk;
 /*              */
-            max-width: 1000px;
-            width: calc(100% - 100px);
             margin-left: 60px !important;
             transform: none !important;
             word-wrap: break-word;
             overflow-wrap: break-word;
-            left: 20%
+            left: 10%
         }
 
         .timeline-item:nth-child(odd) .timeline-content {
@@ -431,7 +428,7 @@
             position: absolute;
 /*             left: 50%; */
 /*             top: 50%; */
-            left: 15%;
+            left: 10%;
             top: 10px;
             transform: translate(-50%, -50%);
             width: clamp(15px, 2vw, 20px);
@@ -749,11 +746,6 @@
             }
         }
 
-        @media (min-width: 1201px) {
-            .timeline-content {
-                max-width: 35%;
-            }
-        }
     </style>
 </head>
 <body>
