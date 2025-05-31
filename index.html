@@ -141,8 +141,6 @@
 
         .logo-container {
             display: flex;
-            flex-direction: column;
-            max-width: 120px;
             text-align: center;
         }
 
@@ -169,6 +167,11 @@
             position: relative;
             transition: color 0.3s ease;
             cursor: pointer;
+        }
+
+        .nav-menu a{
+            color: var(--dark);
+            min-width: 140px;
         }
 
         .nav-menu span.nav-link::before, .nav-menu a::before {
@@ -699,6 +702,8 @@
             .nav-menu {
                 gap: 1rem;
             }
+
+            
 
             .timeline-content {
                 max-width: 40%;
