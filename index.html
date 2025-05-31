@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Danilo Batson | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Animate On Scroll Library -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .gradient-bg {
+      background: linear-gradient(135deg, #f8fafc 0%, #e0f7fa 100%);
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(6px);
+    }
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 10px 24px rgba(34,197,94,0.10);
+    }
+    .tech-badge {
+      animation: pulse-badge 2s infinite;
+    }
+    @keyframes pulse-badge {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.7); }
+      50% { box-shadow: 0 0 10px 4px rgba(34,197,94,0.25); }
+    }
+  </style>
+</head>
+<body class="gradient-bg text-gray-900 transition-colors duration-300">
+  <!-- Header -->
+  <header class="glass max-w-4xl mx-auto mt-8 rounded-2xl shadow-xl flex flex-col md:flex-row items-center p-8 relative">
+    <img src="Danilo Photo.jpeg" alt="Danilo Batson" class="w-28 h-28 rounded-full border-4 border-green-400 shadow-lg mb-4 md:mb-0 md:mr-8 object-cover transition-all hover:scale-105">
+    <div>
+      <h1 class="text-4xl font-extrabold text-green-700 mb-2 tracking-tight" data-aos="fade-right">Danilo Batson</h1>
+      <h2 class="text-lg font-semibold text-gray-600 mb-3" data-aos="fade-right" data-aos-delay="100">React Native Engineer & Web Developer</h2>
+      <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-3">
+        <a href="mailto:djbatson19@gmail.com" class="hover:text-green-600 transition">djbatson19@gmail.com</a>
+        <span>|</span>
+        <a href="tel:5625081256" class="hover:text-green-600 transition">(562) 508-1256</a>
+        <span>|</span>
+        <a href="https://linkedin.com/in/danilo-batson" target="_blank" class="hover:text-green-600 transition">LinkedIn</a>
+        <span>|</span>
+        <a href="https://github.com/danilobatson" target="_blank" class="hover:text-green-600 transition">GitHub</a>
+      </div>
+      <a href="mailto:djbatson19@gmail.com" class="inline-block bg-green-600 text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 animate-bounce" data-aos="zoom-in" data-aos-delay="200">Contact Me</a>
+    </div>
+    <button id="darkToggle" class="absolute top-3 right-3 text-xl text-gray-400 hover:text-green-700 transition" title="Toggle dark mode">🌙</button>
+  </header>
+  
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-4 py-12">
+    <!-- About -->
+    <section class="mb-10" data-aos="fade-up">
+      <h2 class="text-2xl font-bold text-green-700 mb-3">About Me</h2>
+      <p class="text-gray-800 leading-relaxed">
+        Versatile React Native developer, delivering scalable mobile/web apps leveraging React, Node.js, Next.js, and robust testing/CI/CD proficiency. Startup tested, always learning, always building.
+      </p>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-green-700 mb-3" data-aos="fade-right">Tech Stack</h2>
+      <div class="flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="100">
+        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm tech-badge">React Native</span>
+        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm tech-badge">React</span>
+        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm tech-badge">Next.js</span>
+        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm tech-badge">Node.js</span>
+        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">TypeScript</span>
+        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Vue.js</span>
+        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">SQL</span>
+        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Firebase</span>
+        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Cypress</span>
+        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Maestro</span>
+        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Jest</span>
+        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">CI/CD</span>
+      </div>
+    </section>
+
+    <!-- Portfolio Projects -->
+    <section id="portfolio" class="mb-14">
+      <h2 class="text-2xl font-bold text-green-700 mb-4" data-aos="fade-right">Portfolio</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Project Card 1 -->
+        <div class="project-card bg-white glass rounded-xl shadow-md p-6 flex flex-col transition-transform duration-300" data-aos="zoom-in">
+          <h3 class="font-semibold text-lg text-green-800 mb-2">Smart Home Mobile App</h3>
+          <p class="text-gray-700 mb-2">React Native, Supabase, Solana, Maestro. Modern UI, robust auth, IoT, CI/CD.</p>
+          <div class="flex flex-wrap gap-2 text-xs mb-2">
+            <span class="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">React Native</span>
+            <span class="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">Supabase</span>
+            <span class="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">Solana</span>
+            <span class="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">Maestro</span>
+          </div>
+          <a href="#" class="underline text-green-600 hover:text-green-800 text-sm mt-auto">View Code</a>
+        </div>
+        <!-- Project Card 2 -->
+        <div class="project-card bg-white glass rounded-xl shadow-md p-6 flex flex-col transition-transform duration-300" data-aos="zoom-in" data-aos-delay="100">
+          <h3 class="font-semibold text-lg text-green-800 mb-2">Retail Mobile App</h3>
+          <p class="text-gray-700 mb-2">React Native/Next.js, Expo, CI/CD, secure user flows. Automated E2E testing.</p>
+          <div class="flex flex-wrap gap-2 text-xs mb-2">
+            <span class="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">React Native</span>
+            <span class="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">Next.js</span>
+            <span class="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">Expo</span>
+          </div>
+          <a href="#" class="underline text-green-600 hover:text-green-800 text-sm mt-auto">View Code</a>
+        </div>
+        <!-- Placeholder for Future Project -->
+        <div class="bg-gray-50 border-2 border-dashed border-green-200 rounded-xl flex flex-col items-center justify-center p-8 hover:shadow-lg transition" data-aos="fade-up">
+          <span class="text-5xl text-green-200 mb-2">+</span>
+          <p class="text-gray-500 text-center">Your next project here!<br>Add more cards as you build.</p>
+        </div>
+      </div>
+      <div class="text-right mt-4" data-aos="fade-left">
+        <a href="mailto:djbatson19@gmail.com" class="text-green-700 underline hover:text-green-900 font-semibold">Let's build together &rarr;</a>
+      </div>
+    </section>
+
+    <!-- Timeline for Experience -->
+    <section class="mb-14">
+      <h2 class="text-2xl font-bold text-green-700 mb-4" data-aos="fade-right">Experience</h2>
+      <div class="relative pl-6 border-l-4 border-green-200">
+        <div data-aos="fade-up">
+          <div class="absolute -left-3 top-2 w-6 h-6 bg-green-400 rounded-full"></div>
+          <div>
+            <span class="font-bold text-green-800">LunarCrush</span> <span class="text-sm text-gray-500">React Native Engineer | 2023–Present</span>
+            <ul class="list-disc list-inside text-gray-700 ml-4">
+              <li>React Native & Next.js features, 95% test coverage, CI/CD optimization.</li>
+              <li>Bug fixes, performance improvements.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-8" data-aos="fade-up" data-aos-delay="50">
+          <div class="absolute -left-3 top-2 w-6 h-6 bg-green-400 rounded-full"></div>
+          <div>
+            <span class="font-bold text-green-800">Mongoose</span> <span class="text-sm text-gray-500">Software Engineer | 2022–2023</span>
+            <ul class="list-disc list-inside text-gray-700 ml-4">
+              <li>Vue.js analytics, API integration, Azure CI/CD pipeline configuration.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-8" data-aos="fade-up" data-aos-delay="100">
+          <div class="absolute -left-3 top-2 w-6 h-6 bg-green-400 rounded-full"></div>
+          <div>
+            <span class="font-bold text-green-800">CreditKey</span> <span class="text-sm text-gray-500">Frontend Developer | 2021–2022</span>
+            <ul class="list-disc list-inside text-gray-700 ml-4">
+              <li>React UI development, Jest, React Testing Library, improved loan app UX.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Certs -->
+    <section data-aos="fade-up">
+      <h2 class="text-2xl font-bold text-green-700 mb-4">Education & Certifications</h2>
+      <ul class="list-disc list-inside ml-4 text-gray-700">
+        <li>Certificate in Software Engineering, App Academy (2021)</li>
+        <li>Dual Associate Degrees, East Los Angeles College (2018)</li>
+        <li>React Native Developer, Node.js Bootcamp (Zero To Mastery, 2024)</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white glass mt-10 py-6 rounded-t-2xl">
+    <div class="max-w-4xl mx-auto text-center text-gray-400 text-sm">
+      &copy; <span id="year"></span> Danilo Batson. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Scripts: Animate On Scroll & Dark Mode Toggle -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 700 });
+    // Simple dark mode toggle
+    const darkToggle = document.getElementById('darkToggle');
+    darkToggle.onclick = () => {
+      document.body.classList.toggle('bg-gray-900');
+      document.body.classList.toggle('text-gray-100');
+      document.body.classList.toggle('gradient-bg');
+      document.querySelectorAll('.glass').forEach(el => el.classList.toggle('bg-gray-800'));
+    };
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
