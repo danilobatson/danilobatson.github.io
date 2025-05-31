@@ -400,11 +400,11 @@
 
         .timeline-item:nth-child(odd) .timeline-content {
             margin-left: auto;
-            transform: translateX(50px);
+            transform: translateX(-50px);
         }
 
         .timeline-item:nth-child(even) .timeline-content {
-            transform: translateX(-50px);
+            transform: translateX(50px);
         }
 
         .timeline-content:hover {
@@ -581,7 +581,15 @@
             gap: 0.5rem;
         }
 
-        .contact-icon img, svg {
+        .contact-icon img {
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            padding: 2px;
+            border-radius: 4px;
+        }
+        
+        .contact-icon svg {
             width: 20px;
             height: 20px;
             fill: var(--primary);
@@ -753,9 +761,9 @@
                     <span class="nav-link" data-target="#about">About</span>
                     <span class="nav-link" data-target="#skills">Skills</span>
                     <span class="nav-link" data-target="#experience">Experience</span>
-                    <span class="nav-link" data-target="#projects">Projects</span>
+<!--                     <span class="nav-link" data-target="#projects">Projects</span> -->
                     <span class="nav-link" data-target="#certifications">Certifications</span>
-                    <span class="nav-link" data-target="#testimonials">Testimonials</span>
+<!--                     <span class="nav-link" data-target="#testimonials">Testimonials</span> -->
                     <span class="nav-link" data-target="#contact">Contact</span>
                     <a href="./static/pdf/cv.pdf" target="_blank" class="cv-button">Download CV</a>
                 </div>
@@ -882,7 +890,7 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="fade-in" role="region" aria-label="Portfolio Projects">
+<!--         <section id="projects" class="fade-in" role="region" aria-label="Portfolio Projects">
             <h2 class="section-title">Portfolio Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
@@ -898,7 +906,7 @@
                     <p class="project-description">Developed open-source React Native app on Vercel for 300+ businesses.</p>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- Certifications Section -->
         <section id="certifications" class="fade-in" role="region" aria-label="Certifications & Education">
@@ -930,7 +938,7 @@
         </section>
 
         <!-- Testimonials Section -->
-        <section id="testimonials" class="fade-in" role="region" aria-label="Testimonials">
+<!--         <section id="testimonials" class="fade-in" role="region" aria-label="Testimonials">
             <h2 class="section-title">Testimonials</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
@@ -942,7 +950,7 @@
                     <div class="author">– Product Manager at CreditKey</div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- Contact Section -->
         <section id="contact" class="fade-in" role="region" aria-label="Contact Me">
