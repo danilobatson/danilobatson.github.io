@@ -91,37 +91,64 @@
 			   Content is VISIBLE by default. Motion is layered on only where
 			   the browser supports scroll-driven animation, so a section can
 			   never be stranded at opacity 0 the way the old observer left it. */
+			/* ─── Motion ─────────────────────────────────────────────────
+			   Every keyframe animates transform only, never opacity, so if any
+			   of this fails to run the page still reads perfectly. That rule is
+			   the whole reason the old site's reveal could hide all its content
+			   and this one cannot. */
 			@media (prefers-reduced-motion: no-preference) {
+
+				/* Hero entrance — a plain document-timeline animation, so it runs
+				   in every browser. It was previously nested inside the
+				   @supports below, which meant Safari and Firefox got no motion
+				   at all. */
+				.hero > * { animation: liftIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+				.hero > *:nth-child(2) { animation-delay: 0.07s; }
+				.hero > *:nth-child(3) { animation-delay: 0.14s; }
+				.hero > *:nth-child(4) { animation-delay: 0.21s; }
+				.hero > *:nth-child(5) { animation-delay: 0.28s; }
+				@keyframes liftIn {
+					from { transform: translateY(22px); }
+					to { transform: none; }
+				}
+
+				/* Scroll reveals, modern path: no JavaScript at all. */
 				@supports (animation-timeline: view()) {
-					/* Transform only — never opacity. An earlier version faded from
-					   opacity 0 and a degenerate animation-range left whole sections
-					   pinned invisible, which is the exact failure the old
-					   IntersectionObserver had. Motion that cannot hide content
-					   cannot strand it. */
 					.card, .role, .quote, .art, .skillset > div, .sec-head, .edu {
 						animation: rise linear both;
 						animation-timeline: view();
-						animation-range: entry 0% entry 55%;
-					}
-					@keyframes rise {
-						from { transform: translateY(26px) scale(0.985); }
-						to { transform: none; }
-					}
-					/* Hero moves on load rather than on scroll — it is already in view. */
-					.hero > * { animation: liftIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
-					.hero > *:nth-child(2) { animation-delay: 0.06s; }
-					.hero > *:nth-child(3) { animation-delay: 0.12s; }
-					.hero > *:nth-child(4) { animation-delay: 0.18s; }
-					.hero > *:nth-child(5) { animation-delay: 0.24s; }
-					/* ⛔ transform only, no opacity — same rule as the scroll reveals.
-					   An opacity-from-0 version left the whole hero invisible when the
-					   document timeline did not advance (backgrounded tab). Motion that
-					   cannot hide content cannot strand it. */
-					@keyframes liftIn {
-						from { transform: translateY(16px); }
-						to { transform: none; }
+						animation-range: entry 0% entry 60%;
 					}
 				}
+				/* Fallback for browsers without scroll-driven animation. The
+				   observer adds a class that starts the same transform; if the
+				   script never runs, the element is simply already in place. */
+				@supports not (animation-timeline: view()) {
+					.js-reveal.is-in { animation: rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; }
+				}
+				@keyframes rise {
+					from { transform: translateY(30px) scale(0.98); }
+					to { transform: none; }
+				}
+
+				/* Interaction polish — works everywhere, no feature gate. */
+				.btn { transition: transform 0.16s, background 0.16s, border-color 0.16s, opacity 0.16s; }
+				.btn:hover { transform: translateY(-2px); }
+				.nav-links a { position: relative; }
+				.nav-links a::after {
+					content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 1px;
+					background: currentColor; transform: scaleX(0); transform-origin: right;
+					transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+				}
+				.nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+				.links a { transition: opacity 0.15s; }
+				.links a:hover { opacity: 0.72; }
+				.quote { transition: border-color 0.18s, transform 0.18s; }
+				.quote:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+				.portrait { transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1); }
+				.portrait:hover { transform: scale(1.02) rotate(-0.6deg); }
+				.chips img { transition: opacity 0.15s, transform 0.15s; }
+				.chips li:hover img { opacity: 1; transform: scale(1.12); }
 			}
 
 			/* ─── Prose / About ──────────────────────────────────────────── */
@@ -420,7 +447,7 @@
 			</header>
 
 			<section id="about" class="shell">
-				<div class="sec-head"><h2>About Me</h2></div>
+				<div class="sec-head js-reveal"><h2>About Me</h2></div>
 				<div class="about-grid">
 					<img class="portrait" src="static/img/danilo.jpeg" alt="Danilo Jamaal Batson" />
 					<div class="prose">
@@ -452,7 +479,7 @@
 			</section>
 
 			<section id="skills" class="shell">
-				<div class="sec-head"><h2>Skills</h2></div>
+				<div class="sec-head js-reveal"><h2>Skills</h2></div>
 				<div class="skillset">
 					<div>
 						<h3>Frontend</h3>
@@ -524,9 +551,9 @@
 			</section>
 
 			<section id="experience" class="shell">
-				<div class="sec-head"><h2>Work Experience</h2></div>
+				<div class="sec-head js-reveal"><h2>Work Experience</h2></div>
 				<div class="roles">
-					<article class="role">
+					<article class="role js-reveal">
 						<p class="role-when">May 2023 — Mar 2025</p>
 						<div>
 							<h3>LunarCrush</h3>
@@ -539,7 +566,7 @@
 							</ul>
 						</div>
 					</article>
-					<article class="role">
+					<article class="role js-reveal">
 						<p class="role-when">Jun 2022 — Mar 2023</p>
 						<div>
 							<h3>Mongoose</h3>
@@ -551,7 +578,7 @@
 							</ul>
 						</div>
 					</article>
-					<article class="role">
+					<article class="role js-reveal">
 						<p class="role-when">Oct 2021 — Jun 2022</p>
 						<div>
 							<h3>CreditKey</h3>
@@ -567,9 +594,9 @@
 			</section>
 
 			<section id="projects" class="shell">
-				<div class="sec-head"><h2>Portfolio Projects</h2></div>
+				<div class="sec-head js-reveal"><h2>Portfolio Projects</h2></div>
 				<div class="work">
-					<article class="card">
+					<article class="card js-reveal">
 						<div class="card-top">
 							<h3>AI Healthcare Assessment System</h3>
 							<span class="tag">Healthcare · AI</span>
@@ -592,7 +619,7 @@
 						</div>
 					</article>
 
-					<article class="card">
+					<article class="card js-reveal">
 						<div class="card-top">
 							<h3>AI Viral Prediction Tool</h3>
 							<span class="tag">Social · MCP</span>
@@ -616,7 +643,7 @@
 						</div>
 					</article>
 
-					<article class="card">
+					<article class="card js-reveal">
 						<div class="card-top">
 							<h3>Voice-Controlled AI Assistant</h3>
 							<span class="tag">Voice · Real-time</span>
@@ -638,7 +665,7 @@
 						</div>
 					</article>
 
-					<article class="card">
+					<article class="card js-reveal">
 						<div class="card-top">
 							<h3>AI-Powered Data Analysis Platform</h3>
 							<span class="tag">Pipelines · Jobs</span>
@@ -662,7 +689,7 @@
 						</div>
 					</article>
 
-					<article class="card">
+					<article class="card js-reveal">
 						<div class="card-top">
 							<h3>Enterprise Data Integration Platform</h3>
 							<span class="tag">Go · Microservices</span>
@@ -689,9 +716,9 @@
 			</section>
 
 			<section id="articles" class="shell">
-				<div class="sec-head"><h2>Technical Articles</h2></div>
+				<div class="sec-head js-reveal"><h2>Technical Articles</h2></div>
 				<div class="rows">
-					<article class="art">
+					<article class="art js-reveal">
 						<p class="art-when"><span>June 2025</span><span>25 min read</span></p>
 						<h3>Turn Any REST API into an MCP Server in 25 Minutes</h3>
 						<p>Learn how to transform any REST API into a Model Context Protocol server for AI agent integration.</p>
@@ -701,7 +728,7 @@
 							<a href="https://github.com/danilobatson/lunarcrush_mcp" rel="noopener">View code ↗</a>
 						</div>
 					</article>
-					<article class="art">
+					<article class="art js-reveal">
 						<p class="art-when"><span>June 2025</span><span>19 min read</span></p>
 						<h3>Build an AI Trading Agent with LunarCrush + Google Gemini in 20 Minutes</h3>
 						<p>Transform social media buzz into actionable trading signals using real-time sentiment analysis and AI-powered recommendations.</p>
@@ -711,7 +738,7 @@
 							<a href="https://github.com/danilobatson/ai-trading-agent-mcp" rel="noopener">View code ↗</a>
 						</div>
 					</article>
-					<article class="art">
+					<article class="art js-reveal">
 						<p class="art-when"><span>June 2025</span><span>22 min read</span></p>
 						<h3>Build a Real-Time Crypto Sentiment Dashboard in 20 Minutes with Next.js</h3>
 						<p>Complete step-by-step tutorial showing how to build a beautiful, live crypto sentiment dashboard using Next.js and the LunarCrush API. Includes comprehensive code examples, responsive design patterns, and production deployment strategies.</p>
@@ -725,8 +752,8 @@
 			</section>
 
 			<section id="education" class="shell">
-				<div class="sec-head"><h2>Education</h2></div>
-				<div class="edu">
+				<div class="sec-head js-reveal"><h2>Education</h2></div>
+				<div class="edu js-reveal">
 					<p class="when">2015 — 2018</p>
 					<div>
 						<h3>Dual Associate Degrees, Social/Behavioral &amp; Natural Sciences</h3>
@@ -736,9 +763,9 @@
 			</section>
 
 			<section id="packages" class="shell">
-				<div class="sec-head"><h2>Published Packages</h2></div>
+				<div class="sec-head js-reveal"><h2>Published Packages</h2></div>
 				<div class="work">
-					<article class="card">
+					<article class="card js-reveal">
 						<div class="card-top">
 							<h3>@jamaalbuilds/ai-toolkit</h3>
 							<span class="tag">TypeScript SDK · v0.3.4</span>
@@ -764,7 +791,7 @@
 						</div>
 					</article>
 
-					<article class="card">
+					<article class="card js-reveal">
 						<div class="card-top">
 							<h3>@jamaalbuilds/lunarcrush-api</h3>
 							<span class="tag">SDK · v1.0.1</span>
@@ -783,7 +810,7 @@
 						</div>
 					</article>
 
-					<article class="card">
+					<article class="card js-reveal">
 						<div class="card-top">
 							<h3>@jamaalbuilds/lunarcrush-mcp</h3>
 							<span class="tag">MCP server · v1.0.4</span>
@@ -804,7 +831,7 @@
 						</div>
 					</article>
 
-					<article class="card">
+					<article class="card js-reveal">
 						<div class="card-top">
 							<h3>LunarCrush GraphQL API</h3>
 							<span class="tag">Public API</span>
@@ -829,9 +856,9 @@
 			</section>
 
 			<section id="testimonials" class="shell">
-				<div class="sec-head"><h2>Testimonials</h2></div>
+				<div class="sec-head js-reveal"><h2>Testimonials</h2></div>
 				<div class="quotes">
-					<figure class="quote">
+					<figure class="quote js-reveal">
 						<p>
 							“Danilo is an awesome teammate and a talented developer. He works hard,
 							shows up consistently, and you can trust him to take ownership and push
@@ -846,7 +873,7 @@
 							<span>Co-Founder + CEO at LunarCrush</span>
 						</figcaption>
 					</figure>
-					<figure class="quote">
+					<figure class="quote js-reveal">
 						<p>
 							“As a fellow developer Danilo is very easy to work with. Understands the
 							intent even if the requirements are vague. Can pickup new skills or tech
@@ -861,7 +888,7 @@
 							<span>CTO at LunarCrush</span>
 						</figcaption>
 					</figure>
-					<figure class="quote">
+					<figure class="quote js-reveal">
 						<p>
 							“I worked closely with Danilo at LunarCrush, where he was a key developer
 							on our AI initiatives focused on social insights and intelligence. From a
@@ -878,7 +905,7 @@
 							<span>Chief Product Officer at LunarCrush</span>
 						</figcaption>
 					</figure>
-					<figure class="quote">
+					<figure class="quote js-reveal">
 						<p>
 							“It was a pleasure working with Danilo — he's the kind of developer who can
 							map out a tricky feature in minutes and offers calm, practical solutions
@@ -940,6 +967,21 @@
 				"description": "Software engineer building production TypeScript for AI systems. Creator of @jamaalbuilds/ai-toolkit — 18 modules, 743 tests, published on npm.",
 				"address": { "@type": "PostalAddress", "addressLocality": "Los Angeles", "addressRegion": "CA", "addressCountry": "US" },
 				"knowsAbout": ["TypeScript", "React", "Node.js", "Model Context Protocol", "LLM integration", "GraphQL"]
+			}
+		</script>
+		<script>
+			/* Fallback only: browsers without scroll-driven animation get the same
+			   reveal via an observer. It adds a transform, never an opacity — if
+			   this script fails or never runs, every element is already in place
+			   and fully readable. */
+			if (!CSS.supports('animation-timeline', 'view()') &&
+			    !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+				const io = new IntersectionObserver((entries) => {
+					entries.forEach((e) => {
+						if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+					});
+				}, { rootMargin: '0px 0px -8% 0px' });
+				document.querySelectorAll('.js-reveal').forEach((el) => io.observe(el));
 			}
 		</script>
 	</body>
