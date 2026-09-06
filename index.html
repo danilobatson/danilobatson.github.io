@@ -300,6 +300,16 @@
 				gap: 0.6rem 1rem; margin-bottom: 0.85rem;
 			}
 			.card h3 { font-size: var(--step-1); font-weight: 600; }
+			.stars {
+				display: inline-flex; align-items: center; gap: 0.3rem;
+				font: 500 0.72rem/1 var(--mono); color: var(--ink);
+				border: 1px solid var(--line-strong); border-radius: 5px;
+				padding: 0.32rem 0.55rem; text-decoration: none;
+				transition: border-color 0.15s, transform 0.15s;
+			}
+			.stars:hover { border-color: var(--accent); transform: translateY(-1px); }
+			.stars b { font-weight: 600; }
+
 			.tag {
 				font: 500 0.72rem/1 var(--mono); text-transform: uppercase;
 				letter-spacing: 0.06em; color: var(--accent);
@@ -669,6 +679,8 @@
 						<div class="card-top">
 							<h3>AI-Powered Data Analysis Platform</h3>
 							<span class="tag">Pipelines · Jobs</span>
+							<a class="stars" href="https://github.com/danilobatson/ai-trading-agent-gemini" rel="noopener"
+							   title="Stars on GitHub"><b>★ 375</b> stars · 77 forks</a>
 						</div>
 						<p>
 							Production-ready analysis system featuring multi-step AI processing,
@@ -746,6 +758,26 @@
 						<div class="links">
 							<a href="https://dev.to/dbatson/build-a-real-time-crypto-sentiment-dashboard-in-20-minutes-with-nextjs-2h84" rel="noopener">Read on Dev.to ↗</a>
 							<a href="https://github.com/danilobatson/nextjs-lunarcrush-sentiment" rel="noopener">View code ↗</a>
+						</div>
+					</article>
+					<article class="art js-reveal">
+						<p class="art-when"><span>Sept 2025</span><span>4 min read</span></p>
+						<h3>From 260 Lines to 5: How We Built a Zero-Maintenance LLM Integration SDK</h3>
+						<p>Building an LLM-agnostic SDK that eliminates 98% of boilerplate for crypto social data — the developer-experience thinking behind the packages below.</p>
+						<ul class="stack"><li>LLM</li><li>MCP</li><li>API</li><li>DX</li></ul>
+						<div class="links">
+							<a href="https://dev.to/dbatson/from-260-lines-to-5-how-we-built-a-zero-maintenance-llm-integration-sdk-5e43" rel="noopener">Read on Dev.to ↗</a>
+							<a href="https://github.com/danilobatson/lunarcrush-mcp-sdk" rel="noopener">View code ↗</a>
+						</div>
+					</article>
+					<article class="art js-reveal">
+						<p class="art-when"><span>Aug 2025</span><span>5 min read</span></p>
+						<h3>How I Transformed LunarCrush's REST API into Developer-Friendly GraphQL</h3>
+						<p>Turning a broad REST surface into a schema-first GraphQL API — fewer round trips, no over-fetching, and a playground developers can actually explore.</p>
+						<ul class="stack"><li>GraphQL</li><li>DX</li><li>API</li><li>Cloudflare Workers</li></ul>
+						<div class="links">
+							<a href="https://dev.to/dbatson/how-i-transformed-lunarcrushs-rest-api-into-developer-friendly-graphql-4daj" rel="noopener">Read on Dev.to ↗</a>
+							<a href="https://github.com/danilobatson/lunarcrush-universal" rel="noopener">View code ↗</a>
 						</div>
 					</article>
 				</div>
