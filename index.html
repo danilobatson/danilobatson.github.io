@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Danilo Jamaal Batson — Software Engineer</title>
+		<title>Danilo Jamaal Batson - Portfolio</title>
 		<meta
 			name="description"
 			content="Software engineer building production TypeScript for AI systems. Creator of @jamaalbuilds/ai-toolkit — 18 modules, 743 tests, published on npm." />
@@ -109,6 +109,48 @@
 					}
 				}
 			}
+
+			/* ─── Prose / About ──────────────────────────────────────────── */
+			.prose { max-width: var(--measure); display: grid; gap: 1.1rem; }
+			.prose p { color: var(--ink-soft); }
+			.prose strong { color: var(--ink); font-weight: 500; }
+			.prose .deliver { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+			.prose .deliver li {
+				color: var(--ink-soft); padding-left: 1.15rem; position: relative;
+			}
+			.prose .deliver li::before {
+				content: '—'; position: absolute; left: 0; color: var(--accent);
+			}
+
+			/* ─── Skills ─────────────────────────────────────────────────── */
+			.skillset { display: grid; gap: 1.75rem; }
+			@media (min-width: 52rem) { .skillset { grid-template-columns: repeat(3, 1fr); gap: 2.25rem; } }
+			.skillset h3 {
+				font: 500 var(--step--1)/1.3 var(--mono);
+				color: var(--accent); margin-bottom: 0.85rem;
+			}
+			.chips { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; margin: 0; padding: 0; }
+			.chips li {
+				font: 400 0.75rem/1 var(--mono); color: var(--ink-soft);
+				border: 1px solid var(--line); border-radius: 5px; padding: 0.32rem 0.5rem;
+			}
+
+			/* ─── Education ──────────────────────────────────────────────── */
+			.edu { display: grid; gap: 0.3rem 2rem; }
+			@media (min-width: 46rem) { .edu { grid-template-columns: 11rem 1fr; } }
+			.edu .when { font: 400 var(--step--1)/1.6 var(--mono); color: var(--ink-faint); }
+			.edu h3 { font-size: var(--step-0); font-weight: 600; }
+			.edu p { color: var(--ink-soft); font-size: var(--step--1); }
+
+			/* ─── Article meta ───────────────────────────────────────────── */
+			.art { padding-block: 1.15rem; border-bottom: 1px solid var(--line); }
+			.art:last-child { border-bottom: 0; }
+			.art-when {
+				font: 400 var(--step--1)/1 var(--mono); color: var(--ink-faint);
+				margin-bottom: 0.4rem; display: flex; gap: 0.9rem;
+			}
+			.art h3 { font-size: var(--step-0); font-weight: 600; margin-bottom: 0.35rem; }
+			.art p { color: var(--ink-soft); font-size: var(--step--1); max-width: var(--measure); }
 
 			/* ─── Nav ────────────────────────────────────────────────────── */
 			.nav {
@@ -296,10 +338,13 @@
 			<div class="nav-inner">
 				<a class="brand" href="#top">danilo batson <span>/ engineer</span></a>
 				<ul class="nav-links">
-					<li><a href="#work">Work</a></li>
-					<li><a href="#practice">Approach</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#skills">Skills</a></li>
 					<li><a href="#experience">Experience</a></li>
-					<li><a href="#writing">Writing</a></li>
+					<li><a href="#projects">Projects</a></li>
+					<li><a href="#articles">Articles</a></li>
+					<li><a href="#packages">Packages</a></li>
+					<li><a href="#testimonials">Testimonials</a></li>
 					<li><a href="#contact">Contact</a></li>
 				</ul>
 			</div>
@@ -310,14 +355,14 @@
 				<p class="eyebrow">Los Angeles, CA</p>
 				<h1>Danilo Jamaal Batson</h1>
 				<p class="lede">
-					Software engineer building <strong>production TypeScript for AI systems</strong>.
-					I work on the unglamorous half — the SDKs, the type boundaries, and the tests
-					that catch what shipped rather than what compiled.
+					AI Engineer specializing in <strong>production AI systems</strong> — LLM
+					integration, MCP Protocol, agent architectures, and developer tooling.
+					5+ years shipping apps at scale.
 				</p>
 				<div class="cta-row">
-					<a class="btn btn-primary" href="#work">See selected work</a>
+					<a class="btn btn-primary" href="#projects">See my work</a>
 					<a class="btn" href="https://github.com/danilobatson" rel="noopener">GitHub</a>
-					<a class="btn" href="static/pdf/cv.pdf">Résumé (PDF)</a>
+					<a class="btn" href="static/pdf/cv.pdf">Download CV</a>
 				</div>
 				<dl class="stats">
 					<div class="stat">
@@ -330,183 +375,90 @@
 					</div>
 					<div class="stat">
 						<dt>Experience</dt>
-						<dd>5 years <small>full-stack</small></dd>
+						<dd>5+ years <small>full-stack</small></dd>
 					</div>
 				</dl>
 			</header>
 
-			<section id="work" class="shell">
-				<div class="sec-head">
-					<h2>Selected work</h2>
+			<section id="about" class="shell">
+				<div class="sec-head"><h2>About Me</h2></div>
+				<div class="prose">
 					<p>
-						Four projects with running demos. Each one solves a problem I actually had.
+						Creator of <strong>@jamaalbuilds/ai-toolkit</strong>, a unified TypeScript SDK
+						for building AI-powered applications. Previously led development of React
+						Native and Next.js platforms at LunarCrush.
+					</p>
+					<p><strong>What I deliver:</strong></p>
+					<ul class="deliver">
+						<li>AI-powered applications with LLMs, RAG, agents, and MCP</li>
+						<li>Production-ready React Native, Next.js, and Node.js apps</li>
+						<li>Open-source developer tools with comprehensive testing (740+ tests)</li>
+						<li>Immediate contribution — I ship code in week one</li>
+					</ul>
+					<p>
+						My healthcare education background instilled systematic problem-solving and
+						attention to detail that translates directly to debugging complex systems and
+						delivering reliable software under pressure.
+					</p>
+					<p>
+						<strong>Recent focus:</strong> Published @jamaalbuilds/ai-toolkit on npm —
+						18 modules wrapping Vercel AI SDK, LangChain, LangGraph, Langfuse, Inngest,
+						and MCP behind one consistent API. 743 tests, 30-page documentation site,
+						zero vendor lock-in.
 					</p>
 				</div>
-
-				<div class="work">
-					<article class="card">
-						<div class="card-top">
-							<h3>ai-toolkit</h3>
-							<span class="tag">TypeScript SDK · npm</span>
-						</div>
-						<p>
-							Shipping one production AI feature in TypeScript means learning eight
-							libraries — Vercel AI SDK, LangChain, LangGraph, LlamaIndex, Drizzle,
-							Langfuse, Inngest, MCP — each with its own vocabulary, error shapes and
-							init pattern. The cost isn't reading eight docs sites. It's holding eight
-							incompatible mental models at once and translating between them.
-						</p>
-						<p class="outcome">
-							18 modules behind one adapter API with typed errors and a single import
-							convention. 743 tests, 10 ADRs, and a CI step that executes the built
-							artifact rather than the source — added after a bug passed 720 green tests
-							and still broke every call in the published package.
-						</p>
-						<ul class="stack">
-							<li>TypeScript</li><li>Turborepo</li><li>Vitest</li><li>Biome</li><li>Zod</li>
-						</ul>
-						<div class="links">
-							<a href="https://www.npmjs.com/package/@jamaalbuilds/ai-toolkit" rel="noopener">npm ↗</a>
-							<a href="https://ai-toolkit-docs.vercel.app" rel="noopener">Docs ↗</a>
-							<a href="https://github.com/danilobatson/ai-toolkit" rel="noopener">Source ↗</a>
-						</div>
-					</article>
-
-					<article class="card">
-						<div class="card-top">
-							<h3>AI Health Screening</h3>
-							<span class="tag">Full-stack · LLM</span>
-						</div>
-						<p>
-							A symptom-intake tool that turns free-text description into a structured
-							assessment, with the model's reasoning kept visible rather than hidden
-							behind a verdict.
-						</p>
-						<ul class="stack">
-							<li>Next.js</li><li>TypeScript</li><li>LLM APIs</li><li>Vercel</li>
-						</ul>
-						<div class="links">
-							<a href="https://ai-health-screening.vercel.app/" rel="noopener">Live demo ↗</a>
-							<a href="https://github.com/danilobatson/ai-health-screening" rel="noopener">Source ↗</a>
-						</div>
-					</article>
-
-					<article class="card">
-						<div class="card-top">
-							<h3>AI Trading Agent</h3>
-							<span class="tag">Agents · MCP</span>
-						</div>
-						<p>
-							An agent that pulls live social sentiment through the Model Context
-							Protocol and reasons about it with Gemini — built to test whether MCP
-							holds up as a tool boundary outside a demo.
-						</p>
-						<ul class="stack">
-							<li>MCP Protocol</li><li>Google Gemini</li><li>Node.js</li><li>TypeScript</li>
-						</ul>
-						<div class="links">
-							<a href="https://ai-trading-agent-gemini.vercel.app/" rel="noopener">Live demo ↗</a>
-							<a href="https://github.com/danilobatson/ai-trading-agent-gemini" rel="noopener">Source ↗</a>
-						</div>
-					</article>
-
-					<article class="card">
-						<div class="card-top">
-							<h3>Viral Prediction Tool</h3>
-							<span class="tag">Data · ML</span>
-						</div>
-						<p>
-							Scores social posts on likelihood of spreading, using the engagement
-							signals that actually move rather than the vanity ones that don't.
-						</p>
-						<ul class="stack">
-							<li>Next.js</li><li>Python</li><li>Social APIs</li>
-						</ul>
-						<div class="links">
-							<a href="https://ai-viral-prediction-tool.vercel.app/" rel="noopener">Live demo ↗</a>
-							<a href="https://github.com/danilobatson/ai-viral-prediction-tool" rel="noopener">Source ↗</a>
-						</div>
-					</article>
-				</div>
 			</section>
 
-			<section id="practice" class="shell">
-				<div class="sec-head">
-					<h2>How I work</h2>
-					<p>Three habits that come from getting it wrong first.</p>
-				</div>
-				<div class="practice">
+			<section id="skills" class="shell">
+				<div class="sec-head"><h2>Skills</h2></div>
+				<div class="skillset">
 					<div>
-						<h3>verify the artifact</h3>
-						<p>
-							A test suite runs against your source. Users run the thing you shipped.
-							Those differ more often than anyone expects — my SDK passed 720 tests
-							while every storage call threw on install, because the test runner
-							supplied a global the published package didn't have. CI now executes
-							the built package.
-						</p>
+						<h3>Frontend</h3>
+						<ul class="chips">
+							<li>React Native</li><li>React</li><li>Next.js</li><li>Vue.js</li>
+							<li>JavaScript</li><li>TypeScript</li><li>HTML</li><li>CSS</li>
+							<li>Material UI</li><li>Tailwind CSS</li><li>Expo</li><li>Bootstrap</li>
+							<li>Storybook</li>
+						</ul>
 					</div>
 					<div>
-						<h3>a guard that can't fail is worse than none</h3>
-						<p>
-							It reports safety you don't have. I found a check whose pattern matched
-							nothing and had been recorded as passing for months. Every guard I add
-							now ships with a fixture proving it goes red.
-						</p>
+						<h3>Backend &amp; Testing</h3>
+						<ul class="chips">
+							<li>Node.js</li><li>Go</li><li>SQL</li><li>GraphQL</li>
+							<li>Apollo GraphQL</li><li>Express</li><li>MongoDB</li><li>Supabase</li>
+							<li>Firebase</li><li>Cloudflare</li><li>Cypress</li>
+							<li>React Testing Library</li><li>Jest</li><li>Maestro</li>
+							<li>Unit Testing</li><li>E2E Testing</li>
+						</ul>
 					</div>
 					<div>
-						<h3>delete before documenting</h3>
-						<p>
-							Most stale docs aren't underwritten, they're duplicated — the same rule
-							in four files, drifting apart. The fix is usually one owner and three
-							pointers, not a rewrite.
-						</p>
+						<h3>AI Engineering &amp; DevOps</h3>
+						<ul class="chips">
+							<li>Open AI</li><li>Claude</li><li>Gemini</li><li>Llama</li>
+							<li>Azure Pipelines</li><li>Docker</li><li>Linear</li><li>Git</li>
+							<li>GitHub</li><li>Postman</li><li>Insomnia</li><li>Figma</li>
+							<li>Solana</li><li>Vercel AI SDK</li><li>LangChain.js</li>
+							<li>LangGraph.js</li><li>Langfuse</li><li>Inngest</li>
+							<li>MCP Protocol</li><li>RAG Pipelines</li><li>Agent Architectures</li>
+							<li>CI/CD</li>
+						</ul>
 					</div>
 				</div>
-			</section>
-
-			<section id="packages" class="shell">
-				<div class="sec-head">
-					<h2>Published packages</h2>
-					<p>Open source, versioned, installable today.</p>
-				</div>
-				<ul class="rows">
-					<li>
-						<a class="row" href="https://www.npmjs.com/package/@jamaalbuilds/ai-toolkit" rel="noopener">
-							<span class="row-title">@jamaalbuilds/ai-toolkit</span>
-							<span class="row-meta">unified TypeScript SDK for AI apps</span>
-							<span class="row-meta">v0.3.4</span>
-						</a>
-					</li>
-					<li>
-						<a class="row" href="https://www.npmjs.com/package/@jamaalbuilds/lunarcrush-mcp" rel="noopener">
-							<span class="row-title">@jamaalbuilds/lunarcrush-mcp</span>
-							<span class="row-meta">MCP server for social intelligence data</span>
-							<span class="row-meta">v1.0.4</span>
-						</a>
-					</li>
-					<li>
-						<a class="row" href="https://www.npmjs.com/package/@jamaalbuilds/lunarcrush-api" rel="noopener">
-							<span class="row-title">@jamaalbuilds/lunarcrush-api</span>
-							<span class="row-meta">typed client for the LunarCrush API</span>
-							<span class="row-meta">v1.0.1</span>
-						</a>
-					</li>
-				</ul>
 			</section>
 
 			<section id="experience" class="shell">
-				<div class="sec-head"><h2>Experience</h2></div>
+				<div class="sec-head"><h2>Work Experience</h2></div>
 				<div class="roles">
 					<article class="role">
 						<p class="role-when">May 2023 — Mar 2025</p>
 						<div>
 							<h3>LunarCrush</h3>
-							<p class="where">Senior Software Engineer · social intelligence for crypto</p>
+							<p class="where">Senior Software Engineer</p>
 							<ul>
-								<li>Led development of the React Native mobile app and Next.js web platform with real-time social analytics.</li>
-								<li>Architected AI features using LLMs and the Model Context Protocol, and shipped the public SDK and MCP server developers integrate against.</li>
-								<li>Established E2E test infrastructure with Cypress and Maestro, accelerating release cycles.</li>
+								<li>Lead development of React Native mobile app and Next.js web platform with real-time social data analytics.</li>
+								<li>Architect and implement AI-powered features using LLMs and Model Context Protocol (MCP), driving user engagement and platform differentiation.</li>
+								<li>Established comprehensive testing infrastructure with Cypress and Maestro, improving code quality and accelerating release cycles.</li>
+								<li>Own end-to-end feature delivery from technical design through deployment, collaborating directly with product and design stakeholders.</li>
 							</ul>
 						</div>
 					</article>
@@ -516,8 +468,9 @@
 							<h3>Mongoose</h3>
 							<p class="where">Software Engineer</p>
 							<ul>
-								<li>Built and scaled a Vue.js analytics platform for enterprise clients.</li>
-								<li>Designed REST integrations and configured Azure Pipelines CI/CD.</li>
+								<li>Built and scaled Vue.js analytics platform for enterprise clients.</li>
+								<li>Designed and implemented RESTful API integrations, improving data pipeline efficiency.</li>
+								<li>Configured Azure Pipelines CI/CD, streamlining deployment processes.</li>
 							</ul>
 						</div>
 					</article>
@@ -525,58 +478,370 @@
 						<p class="role-when">Oct 2021 — Jun 2022</p>
 						<div>
 							<h3>CreditKey</h3>
-							<p class="where">Software Engineer · B2B fintech</p>
+							<p class="where">Software Engineer</p>
 							<ul>
-								<li>Developed a React component library and Redux state management for lending operations.</li>
-								<li>Wrote Jest and React Testing Library suites, and redesigned the loan application flow.</li>
+								<li>Developed React component library and Redux state management for B2B fintech platform serving lending operations.</li>
+								<li>Implemented comprehensive Jest and React Testing Library test suites, improving code reliability.</li>
+								<li>Collaborated with product team to redesign loan application flow for improved user experience.</li>
 							</ul>
 						</div>
 					</article>
 				</div>
 			</section>
 
-			<section id="writing" class="shell">
-				<div class="sec-head">
-					<h2>Writing</h2>
-					<p>Build-along tutorials, mostly on shipping AI features end to end.</p>
+			<section id="projects" class="shell">
+				<div class="sec-head"><h2>Portfolio Projects</h2></div>
+				<div class="work">
+					<article class="card">
+						<div class="card-top">
+							<h3>AI Healthcare Assessment System</h3>
+							<span class="tag">Healthcare · AI</span>
+						</div>
+						<p>
+							Professional healthcare application combining Google Gemini AI with machine
+							learning for intelligent medical risk assessment. Features hybrid AI
+							analysis, clinical reasoning, and always-on serverless deployment.
+						</p>
+						<p class="outcome">
+							Healthcare domain, AI integration, serverless architecture, clinical
+							decision support, machine learning.
+						</p>
+						<ul class="stack">
+							<li>Python</li><li>Gemini</li><li>JavaScript</li><li>Next.js</li><li>Vercel</li>
+						</ul>
+						<div class="links">
+							<a href="https://ai-health-screening.vercel.app/" rel="noopener">Live demo ↗</a>
+							<a href="https://github.com/danilobatson/ai-health-screening" rel="noopener">GitHub ↗</a>
+						</div>
+					</article>
+
+					<article class="card">
+						<div class="card-top">
+							<h3>AI Viral Prediction Tool</h3>
+							<span class="tag">Social · MCP</span>
+						</div>
+						<p>
+							Real-time social media analysis tool that predicts viral potential using
+							Google Gemini AI, with live creator data via Model Context Protocol (MCP).
+							Features streaming updates and psychology-based engagement scoring.
+						</p>
+						<p class="outcome">
+							Live social data, AI integration, serverless architecture, real-time
+							streaming with live progress updates.
+						</p>
+						<ul class="stack">
+							<li>JavaScript</li><li>Gemini</li><li>MCP Protocol</li><li>Next.js</li>
+							<li>Vercel</li><li>Chakra UI</li>
+						</ul>
+						<div class="links">
+							<a href="https://ai-viral-prediction-tool.vercel.app/" rel="noopener">Live demo ↗</a>
+							<a href="https://github.com/danilobatson/ai-viral-prediction-tool" rel="noopener">GitHub ↗</a>
+						</div>
+					</article>
+
+					<article class="card">
+						<div class="card-top">
+							<h3>Voice-Controlled AI Assistant</h3>
+							<span class="tag">Voice · Real-time</span>
+						</div>
+						<p>
+							Advanced voice interface demonstrating AI integration and real-time data
+							processing. Features speech recognition, AI-powered analysis, and
+							responsive web design.
+						</p>
+						<p class="outcome">
+							Voice-to-AI workflows, real-time data sync, production deployment.
+						</p>
+						<ul class="stack">
+							<li>Next.js</li><li>TypeScript</li><li>Google Gemini AI</li>
+							<li>MCP Protocol</li><li>AWS Amplify</li>
+						</ul>
+						<div class="links">
+							<a href="https://main.d1mzd3l5vs7vk4.amplifyapp.com/" rel="noopener">Live demo ↗</a>
+						</div>
+					</article>
+
+					<article class="card">
+						<div class="card-top">
+							<h3>AI-Powered Data Analysis Platform</h3>
+							<span class="tag">Pipelines · Jobs</span>
+						</div>
+						<p>
+							Production-ready analysis system featuring multi-step AI processing,
+							background job workflows, and real-time dashboard updates. Demonstrates
+							enterprise architecture patterns with comprehensive data handling.
+						</p>
+						<p class="outcome">
+							Multi-step AI pipelines, background job processing, real-time progress
+							tracking, database optimization.
+						</p>
+						<ul class="stack">
+							<li>Next.js</li><li>TypeScript</li><li>Google Gemini AI</li>
+							<li>Inngest</li><li>PostgreSQL</li><li>Supabase</li>
+						</ul>
+						<div class="links">
+							<a href="https://ai-trading-agent-gemini.vercel.app/" rel="noopener">Live demo ↗</a>
+							<a href="https://github.com/danilobatson/ai-trading-agent-gemini" rel="noopener">GitHub ↗</a>
+						</div>
+					</article>
+
+					<article class="card">
+						<div class="card-top">
+							<h3>Enterprise Data Integration Platform</h3>
+							<span class="tag">Go · Microservices</span>
+						</div>
+						<p>
+							High-performance backend system implementing Model Context Protocol (MCP)
+							for AI-enhanced data processing. Features Go microservices, Redis caching,
+							and real-time synchronization across multiple data sources.
+						</p>
+						<p class="outcome">
+							Microservices architecture, high-performance caching, MCP implementation,
+							horizontal scaling capabilities.
+						</p>
+						<ul class="stack">
+							<li>Go</li><li>Redis</li><li>TypeScript</li><li>MCP Protocol</li>
+							<li>Inngest</li><li>Docker</li>
+						</ul>
+						<div class="links">
+							<a href="https://crypto-rankings.vercel.app/" rel="noopener">Live demo ↗</a>
+							<a href="https://github.com/danilobatson/crypto-rankings" rel="noopener">GitHub ↗</a>
+						</div>
+					</article>
 				</div>
-				<ul class="rows">
-					<li><a class="row" href="https://dev.to/dbatson/turn-any-rest-api-into-an-mcp-server-in-25-minutes-4e47" rel="noopener"><span class="row-title">Turn any REST API into an MCP server in 25 minutes</span><span class="row-meta">dev.to</span></a></li>
-					<li><a class="row" href="https://dev.to/dbatson/build-an-ai-trading-agent-with-lunarcrush-google-gemini-in-20-minutes-2bm4" rel="noopener"><span class="row-title">Build an AI trading agent with Gemini in 20 minutes</span><span class="row-meta">dev.to</span></a></li>
-					<li><a class="row" href="https://dev.to/dbatson/build-a-high-performance-crypto-rankings-api-with-go-inngest-redis-in-25-minutes-4eci" rel="noopener"><span class="row-title">A high-performance rankings API with Go, Inngest and Redis</span><span class="row-meta">dev.to</span></a></li>
-					<li><a class="row" href="https://dev.to/dbatson/build-a-real-time-crypto-sentiment-dashboard-in-20-minutes-with-nextjs-2h84" rel="noopener"><span class="row-title">A real-time sentiment dashboard with Next.js</span><span class="row-meta">dev.to</span></a></li>
-					<li><a class="row" href="https://dev.to/dbatson/build-an-altrank-monitor-to-catch-social-momentum-early-51b7" rel="noopener"><span class="row-title">Catching social momentum early with an AltRank monitor</span><span class="row-meta">dev.to</span></a></li>
-					<li><a class="row" href="https://dev.to/dbatson/build-a-dogecoin-sentiment-driven-trading-signal-cli-with-remix-2je2" rel="noopener"><span class="row-title">A sentiment-driven trading signal CLI with Remix</span><span class="row-meta">dev.to</span></a></li>
-				</ul>
+			</section>
+
+			<section id="articles" class="shell">
+				<div class="sec-head"><h2>Technical Articles</h2></div>
+				<div class="rows">
+					<article class="art">
+						<p class="art-when"><span>Jan 2026</span><span>15 min read</span></p>
+						<h3>Build an AltRank Monitor to Catch Social Momentum Early</h3>
+						<p>Node.js CLI tool that monitors cryptocurrency social momentum using AltRank metrics to identify emerging trends.</p>
+						<ul class="stack"><li>Node.js</li><li>CLI</li><li>API</li></ul>
+						<div class="links">
+							<a href="https://dev.to/dbatson/build-an-altrank-monitor-to-catch-social-momentum-early-51b7" rel="noopener">Read on Dev.to ↗</a>
+						</div>
+					</article>
+					<article class="art">
+						<p class="art-when"><span>June 2025</span><span>25 min read</span></p>
+						<h3>Turn Any REST API into an MCP Server in 25 Minutes</h3>
+						<p>Learn how to transform any REST API into a Model Context Protocol server for AI agent integration.</p>
+						<ul class="stack"><li>TypeScript</li><li>MCP</li><li>AI</li></ul>
+						<div class="links">
+							<a href="https://dev.to/dbatson/turn-any-rest-api-into-an-mcp-server-in-25-minutes-4e47" rel="noopener">Read on Dev.to ↗</a>
+							<a href="https://github.com/danilobatson/lunarcrush_mcp" rel="noopener">View code ↗</a>
+						</div>
+					</article>
+					<article class="art">
+						<p class="art-when"><span>June 2025</span><span>20 min read</span></p>
+						<h3>Build a Dogecoin Sentiment-Driven Trading Signal CLI with Remix</h3>
+						<p>CLI tool that analyzes Dogecoin social sentiment to generate trading signals using Remix and TypeScript.</p>
+						<ul class="stack"><li>Remix</li><li>TypeScript</li><li>CLI</li></ul>
+						<div class="links">
+							<a href="https://dev.to/dbatson/build-a-dogecoin-sentiment-driven-trading-signal-cli-with-remix-2je2" rel="noopener">Read on Dev.to ↗</a>
+						</div>
+					</article>
+					<article class="art">
+						<p class="art-when"><span>June 2025</span><span>25 min read</span></p>
+						<h3>Build a High-Performance Crypto Rankings API with Go + Inngest + Redis</h3>
+						<p>High-performance API using Go, Inngest for background jobs, and Redis for caching cryptocurrency rankings data.</p>
+						<ul class="stack"><li>Go</li><li>Redis</li><li>Next.js</li></ul>
+						<div class="links">
+							<a href="https://dev.to/dbatson/build-a-high-performance-crypto-rankings-api-with-go-inngest-redis-in-25-minutes-4eci" rel="noopener">Read on Dev.to ↗</a>
+						</div>
+					</article>
+					<article class="art">
+						<p class="art-when"><span>June 2025</span><span>19 min read</span></p>
+						<h3>Build an AI Trading Agent with LunarCrush + Google Gemini in 20 Minutes</h3>
+						<p>Transform social media buzz into actionable trading signals using real-time sentiment analysis and AI-powered recommendations.</p>
+						<ul class="stack"><li>Next.js</li><li>Gemini</li><li>AI</li></ul>
+						<div class="links">
+							<a href="https://dev.to/dbatson/build-an-ai-trading-agent-with-lunarcrush-google-gemini-in-20-minutes-2bm4" rel="noopener">Read on Dev.to ↗</a>
+							<a href="https://github.com/danilobatson/ai-trading-agent-mcp" rel="noopener">View code ↗</a>
+						</div>
+					</article>
+					<article class="art">
+						<p class="art-when"><span>June 2025</span><span>22 min read</span></p>
+						<h3>Build a Real-Time Crypto Sentiment Dashboard in 20 Minutes with Next.js</h3>
+						<p>Complete step-by-step tutorial showing how to build a beautiful, live crypto sentiment dashboard using Next.js and the LunarCrush API. Includes comprehensive code examples, responsive design patterns, and production deployment strategies.</p>
+						<ul class="stack"><li>Next.js</li><li>Real-time</li></ul>
+						<div class="links">
+							<a href="https://dev.to/dbatson/build-a-real-time-crypto-sentiment-dashboard-in-20-minutes-with-nextjs-2h84" rel="noopener">Read on Dev.to ↗</a>
+							<a href="https://github.com/danilobatson/nextjs-lunarcrush-sentiment" rel="noopener">View code ↗</a>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<section id="education" class="shell">
+				<div class="sec-head"><h2>Education</h2></div>
+				<div class="edu">
+					<p class="when">2015 — 2018</p>
+					<div>
+						<h3>Dual Associate Degrees, Social/Behavioral &amp; Natural Sciences</h3>
+						<p>East Los Angeles College</p>
+					</div>
+				</div>
+			</section>
+
+			<section id="packages" class="shell">
+				<div class="sec-head"><h2>Published Packages</h2></div>
+				<div class="work">
+					<article class="card">
+						<div class="card-top">
+							<h3>@jamaalbuilds/ai-toolkit</h3>
+							<span class="tag">TypeScript SDK · v0.3.4</span>
+						</div>
+						<p>
+							Unified TypeScript SDK for building AI-powered applications. 18 modules
+							wrapping Vercel AI SDK, LangChain, LangGraph, Langfuse, Inngest, and MCP
+							behind one consistent API. 743 tests, 30-page documentation site.
+						</p>
+						<p class="outcome">
+							743 tests, 18 modules, published on npm, 30-page docs site, PII detection,
+							RAG pipelines, multi-agent graphs, durable workflows.
+						</p>
+						<ul class="stack">
+							<li>TypeScript</li><li>Vercel AI SDK</li><li>LangChain.js</li>
+							<li>LangGraph.js</li><li>Langfuse</li><li>Inngest</li>
+							<li>Drizzle ORM</li><li>MCP Protocol</li>
+						</ul>
+						<div class="links">
+							<a href="https://ai-toolkit-docs.vercel.app" rel="noopener">Documentation ↗</a>
+							<a href="https://www.npmjs.com/package/@jamaalbuilds/ai-toolkit" rel="noopener">View on npm ↗</a>
+							<a href="https://github.com/danilobatson/ai-toolkit" rel="noopener">GitHub ↗</a>
+						</div>
+					</article>
+
+					<article class="card">
+						<div class="card-top">
+							<h3>@jamaalbuilds/lunarcrush-api</h3>
+							<span class="tag">SDK · v1.0.1</span>
+						</div>
+						<p>
+							TypeScript SDK for the LunarCrush API with full type safety, automatic rate
+							limiting, and comprehensive documentation. Simplifies integration of social
+							intelligence data into any JavaScript/TypeScript project.
+						</p>
+						<p class="outcome">
+							Full type definitions, promise-based API, error handling, rate limit management.
+						</p>
+						<ul class="stack"><li>TypeScript</li><li>Node.js</li><li>npm</li></ul>
+						<div class="links">
+							<a href="https://www.npmjs.com/package/@jamaalbuilds/lunarcrush-api" rel="noopener">View on npm ↗</a>
+						</div>
+					</article>
+
+					<article class="card">
+						<div class="card-top">
+							<h3>@jamaalbuilds/lunarcrush-mcp</h3>
+							<span class="tag">MCP server · v1.0.4</span>
+						</div>
+						<p>
+							Model Context Protocol (MCP) server that enables AI assistants like Claude
+							to access real-time social intelligence data. Bridges LLMs with live crypto
+							sentiment and social metrics.
+						</p>
+						<p class="outcome">
+							AI/LLM integration, real-time data access, zero cold starts, edge deployment.
+						</p>
+						<ul class="stack">
+							<li>TypeScript</li><li>MCP Protocol</li><li>Cloudflare Workers</li>
+						</ul>
+						<div class="links">
+							<a href="https://www.npmjs.com/package/@jamaalbuilds/lunarcrush-mcp" rel="noopener">View on npm ↗</a>
+						</div>
+					</article>
+
+					<article class="card">
+						<div class="card-top">
+							<h3>LunarCrush GraphQL API</h3>
+							<span class="tag">Public API</span>
+						</div>
+						<p>
+							Public GraphQL API that transforms the LunarCrush REST API into a
+							developer-friendly GraphQL interface. Enables flexible queries, reduced
+							over-fetching, and improved developer experience.
+						</p>
+						<p class="outcome">
+							Schema-first design, type-safe queries, edge deployment, public API.
+						</p>
+						<ul class="stack">
+							<li>TypeScript</li><li>GraphQL</li><li>Apollo Server</li>
+							<li>Cloudflare Workers</li>
+						</ul>
+						<div class="links">
+							<a href="https://lunarcrush.cryptoguard-api.workers.dev/graphql" rel="noopener">Try GraphQL Playground ↗</a>
+						</div>
+					</article>
+				</div>
 			</section>
 
 			<section id="testimonials" class="shell">
-				<div class="sec-head"><h2>What colleagues say</h2></div>
+				<div class="sec-head"><h2>Testimonials</h2></div>
 				<div class="quotes">
 					<figure class="quote">
 						<p>
-							“What I valued most was his ability to connect technical execution with
-							real user impact. He understood how messy social data can be and
-							consistently helped turn that noise into clear, usable signal. Just as
-							importantly, he was someone I could trust to build the right things, not
-							just ship code.”
+							“Danilo is an awesome teammate and a talented developer. He works hard,
+							shows up consistently, and you can trust him to take ownership and push
+							things across the finish line. He's collaborative with product and design,
+							low ego, and always willing to jump in wherever the team needs help. If
+							you're looking for someone who's talented, dependable, positive, and truly
+							committed to the team, Danilo is that person. I'd work with him again
+							anytime.”
 						</p>
 						<figcaption>
-							<a href="https://www.linkedin.com/in/jonathanfarjo/" rel="noopener">Jonathan Farjo</a>
-							<span>Chief Product Officer, LunarCrush</span>
+							<a href="https://www.linkedin.com/in/joevezzani/" rel="noopener">Joe Vezzani</a>
+							<span>Co-Founder + CEO at LunarCrush</span>
 						</figcaption>
 					</figure>
 					<figure class="quote">
 						<p>
-							“He's the kind of developer who can map out a tricky feature in minutes
-							and offers calm, practical solutions whenever a bug pops up. As the UI/UX
-							designer on the team, I especially appreciated how smoothly our hand-offs
-							went — he already thought about user flow and edge cases before I even
-							opened Figma.”
+							“As a fellow developer Danilo is very easy to work with. Understands the
+							intent even if the requirements are vague. Can pickup new skills or tech
+							stack changes quickly to help ship product. Knows how to read and write the
+							code AND how to utilize AI to accelerate that process correctly. He is
+							definitely one of the newer generation of developers that can realize the
+							benefits of AI while also being able to review and correct the outputs as
+							if he was actually a few developers working together.”
+						</p>
+						<figcaption>
+							<a href="https://www.linkedin.com/in/danatlunar/" rel="noopener">Dan Williams</a>
+							<span>CTO at LunarCrush</span>
+						</figcaption>
+					</figure>
+					<figure class="quote">
+						<p>
+							“I worked closely with Danilo at LunarCrush, where he was a key developer
+							on our AI initiatives focused on social insights and intelligence. From a
+							product perspective, what I valued most was his ability to connect
+							technical execution with real user impact. He understood how messy social
+							data can be and consistently helped turn that noise into clear, usable
+							signal that actually informed how we built and shipped product. Just as
+							importantly, he was someone I could trust to build the right things, not
+							just ship code. Any team working on AI, data, or intelligence-driven
+							products would be lucky to have him.”
+						</p>
+						<figcaption>
+							<a href="https://www.linkedin.com/in/jonathanfarjo/" rel="noopener">Jonathan Farjo</a>
+							<span>Chief Product Officer at LunarCrush</span>
+						</figcaption>
+					</figure>
+					<figure class="quote">
+						<p>
+							“It was a pleasure working with Danilo — he's the kind of developer who can
+							map out a tricky feature in minutes and offers calm, practical solutions
+							whenever a bug pops up. As the UI/UX designer on the team, I especially
+							appreciated how smoothly our hand-offs went; the design-to-engineering loop
+							felt effortless because he already thought about user flow and edge cases
+							before I even opened Figma. He keeps the bigger picture of how a product
+							should behave front-of-mind while he codes, and any team looking for a
+							thoughtful, easy-to-work-with engineer will be happy to have him on board.”
 						</p>
 						<figcaption>
 							<a href="https://www.linkedin.com/in/nbanados/" rel="noopener">Nicolas Banados</a>
-							<span>Senior Product Designer, LunarCrush</span>
+							<span>Senior Product Designer at LunarCrush</span>
 						</figcaption>
 					</figure>
 				</div>
@@ -585,10 +850,11 @@
 			<section id="contact" class="shell">
 				<div class="contact-grid">
 					<div>
-						<h2>Let's talk</h2>
+						<h2>Contact Me</h2>
 						<p>
 							I build AI-powered applications and open-source developer tools. Open to
-							conversations about AI engineering, full-stack, and staff-level work.
+							discussing AI Engineering, Full Stack, and Staff Engineer opportunities.
+							I respond to all inquiries within 24 hours.
 						</p>
 					</div>
 					<ul class="contact-list">
@@ -612,7 +878,7 @@
 				"@type": "Person",
 				"name": "Danilo Jamaal Batson",
 				"alternateName": "Jamaal Batson",
-				"jobTitle": "Software Engineer",
+				"jobTitle": "AI Engineer",
 				"email": "djbatson19@gmail.com",
 				"url": "https://danilobatson.github.io/",
 				"image": "https://danilobatson.github.io/static/img/danilo.jpeg",
